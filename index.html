@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>LOOP — Conectando el cuidado</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#0B41B1;
+  --cream:#FBF5C3;
+  --sky:#719FB4;
+  --mint:#C7EEDC;
+  --orange:#FF4D00;
+  --dark:#0a0a0a;
+}
+body{font-family:'Poppins',Helvetica,sans-serif;background:#111;display:flex;justify-content:center}
+.lp{width:100%;max-width:430px;background:#fff}
+
+/* HERO */
+.hero{background:var(--blue);padding:2rem 1.5rem 2.5rem;position:relative;overflow:hidden;min-height:480px;display:flex;flex-direction:column;justify-content:space-between}
+.hero-nav{display:flex;justify-content:space-between;align-items:center}
+.hero-nav span{font-size:10px;color:var(--sky);letter-spacing:.1em;text-transform:uppercase}
+.hero-main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:2rem 0 1rem}
+.hero-eyebrow{font-size:10px;color:var(--sky);letter-spacing:.14em;text-transform:uppercase;margin-bottom:.5rem}
+.hero-title{font-size:80px;font-weight:900;color:var(--cream);line-height:.88;letter-spacing:-.03em;margin-bottom:1rem}
+.hero-sub{font-size:12px;color:var(--sky);line-height:1.65;max-width:260px;margin-bottom:1.75rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag-solid{background:var(--cream);color:var(--blue);font-size:10px;font-weight:700;padding:5px 14px;border-radius:999px;letter-spacing:.04em}
+.tag-outline{border:1px solid var(--sky);color:var(--sky);font-size:10px;padding:5px 14px;border-radius:999px;letter-spacing:.04em}
+.hero-num{position:absolute;top:2rem;right:1.5rem;font-size:10px;color:var(--sky);writing-mode:vertical-rl;letter-spacing:.12em;text-transform:uppercase}
+
+/* FICHA */
+.ficha{background:var(--blue);padding:1.5rem;border-top:1px solid rgba(255,255,255,.08)}
+.ficha-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem}
+.ficha-id{font-size:10px;color:var(--sky);letter-spacing:.1em;text-transform:uppercase}
+.ficha-logo{font-size:15px;font-weight:700;color:var(--cream);letter-spacing:.08em}
+.ficha-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem}
+.ficha-item{border-top:0.5px solid rgba(255,255,255,.12);padding-top:.7rem}
+.ficha-item label{font-size:9px;color:var(--sky);letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:3px}
+.ficha-item p{font-size:12px;color:var(--cream);line-height:1.4}
+.ficha-phrase{font-size:12px;color:var(--sky);line-height:1.7}
+.ficha-phrase strong{color:var(--cream)}
+.ficha-phrase em{color:var(--orange);font-style:normal;font-weight:600}
+
+/* HANDS / FOTO */
+.photo-section{background:var(--sky);height:260px;display:flex;align-items:flex-end;justify-content:space-between;padding:1.25rem 1.5rem;position:relative;overflow:hidden}
+.photo-bg{position:absolute;inset:0;background:linear-gradient(160deg,var(--sky) 40%,#4a7a94 100%);opacity:.9}
+.photo-text{position:relative;z-index:1}
+.photo-text h2{font-size:56px;font-weight:900;color:var(--cream);line-height:.9;letter-spacing:-.02em}
+.photo-caption{position:relative;z-index:1;text-align:right;max-width:130px}
+.photo-caption p{font-size:10px;color:rgba(251,245,195,.75);line-height:1.5}
+
+/* PROBLEM */
+.problem{background:var(--cream);padding:2rem 1.5rem}
+.sec-label{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem}
+.sec-title{font-size:26px;font-weight:700;color:var(--blue);line-height:1.1;margin-bottom:1rem}
+.sec-body{font-size:13px;color:#333;line-height:1.7}
+.stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:1.25rem}
+.stat{background:var(--blue);border-radius:10px;padding:1rem}
+.stat-n{font-size:28px;font-weight:700;color:var(--cream);display:block;margin-bottom:2px;letter-spacing:-.02em}
+.stat-d{font-size:10px;color:var(--sky);line-height:1.4}
+
+/* HOW */
+.how{background:#fff;padding:2rem 1.5rem}
+.step-list{margin-top:1.25rem}
+.step{display:flex;gap:12px;padding:.875rem 0;border-bottom:.5px solid rgba(11,65,177,.12);align-items:flex-start}
+.step:last-child{border-bottom:none}
+.sn{width:30px;height:30px;min-width:30px;border-radius:50%;background:var(--blue);color:var(--cream);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.step h3{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:2px}
+.step p{font-size:12px;color:#444;line-height:1.5}
+
+/* VARIANTS */
+.variants{background:var(--blue);padding:2rem 1.5rem}
+.variants .sec-label{color:var(--sky)}
+.variants .sec-title{color:var(--cream)}
+.var-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:1.25rem}
+.var-card{background:#f5f5f5;border-radius:10px;padding:1.125rem 1rem}
+.var-card h3{font-size:15px;font-weight:700;color:var(--blue);margin-bottom:.3rem}
+.var-card p{font-size:11px;color:#333;line-height:1.5;margin-bottom:.75rem}
+.var-pill{background:var(--blue);color:var(--cream);font-size:10px;font-weight:600;padding:3px 10px;border-radius:999px;display:inline-block}
+
+/* PERSONAS */
+.personas{background:var(--sky);padding:2rem 1.5rem}
+.personas .sec-label{color:var(--cream)}
+.personas .sec-title{color:#fff}
+.per-list{margin-top:1.25rem;display:flex;flex-direction:column;gap:8px}
+.per{background:#fff;border-radius:10px;padding:1rem;display:flex;gap:12px;align-items:center}
+.av{width:40px;height:40px;min-width:40px;border-radius:50%;background:var(--blue);color:var(--cream);font-size:18px;display:flex;align-items:center;justify-content:center}
+.per p{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:2px}
+.per span{font-size:11px;color:#555;line-height:1.4}
+
+/* TECH */
+.tech{background:#f5f5f5;padding:2rem 1.5rem}
+.tech-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:1.25rem}
+.tech-item{background:var(--blue);border-radius:8px;padding:.875rem}
+.tech-item p{font-size:12px;font-weight:600;color:var(--cream);margin-bottom:2px}
+.tech-item span{font-size:11px;color:var(--sky)}
+
+/* QUOTE */
+.quote-block{background:var(--blue);padding:2.5rem 1.75rem;text-align:center}
+.qmark{font-size:56px;color:var(--sky);line-height:.7;margin-bottom:.75rem;font-family:Georgia,serif}
+.qtext{font-size:18px;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:.75rem;letter-spacing:-.01em}
+.qby{font-size:10px;color:var(--sky);letter-spacing:.1em;text-transform:uppercase}
+
+/* CTA */
+.cta{background:var(--cream);padding:2.5rem 1.5rem;text-align:center}
+.cta .sec-title{margin-bottom:.75rem}
+.cta-body{font-size:12px;color:#444;line-height:1.7;margin-bottom:1.5rem}
+.cta-btn{background:var(--blue);color:var(--cream);font-size:13px;font-weight:700;padding:14px 36px;border-radius:999px;border:none;cursor:pointer;font-family:'Poppins',sans-serif;letter-spacing:.02em}
+.award{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:var(--cream);font-size:10px;font-weight:500;padding:7px 16px;border-radius:999px;margin-top:1.25rem}
+
+/* TEAM */
+.team{background:#111;padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1rem}
+.team .sec-label{color:#555;text-align:center}
+.team .sec-title{color:#fff;text-align:center;font-size:20px}
+.photobooth{position:relative;display:flex;justify-content:center;margin-top:.5rem}
+.photobooth-strip{background:#fff;padding:10px 10px 32px 10px;box-shadow:0 8px 32px rgba(0,0,0,.5);transform:rotate(-3deg);border-radius:2px;transition:transform .3s}
+.photobooth-strip:hover{transform:rotate(0deg)}
+.photobooth-strip img{width:260px;height:200px;object-fit:cover;display:block;filter:contrast(1.05) saturate(0.95)}
+.photobooth-label{text-align:center;font-size:11px;font-weight:600;color:#333;letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
+.photobooth-dots{display:flex;justify-content:center;gap:4px;margin-top:6px}
+.photobooth-dots span{width:5px;height:5px;border-radius:50%;background:#bbb}
+
+/* FOOTER */
+.footer{padding:1.25rem 1.5rem;border-top:.5px solid rgba(11,65,177,.18);display:flex;justify-content:space-between;align-items:center}
+.footer p{font-size:10px;color:var(--blue);letter-spacing:.06em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="lp">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-nav">
+      <span>Designed With Care</span>
+    </div>
+
+    <div class="hero-main">
+      <div class="hero-eyebrow">Tecnología asistencial · Chihuahua, Mx</div>
+      <div class="hero-title">LOOP.</div>
+      <p class="hero-sub">Independencia al alcance de un botón. Conectando el cuidado.</p>
+      <div class="tags">
+        <span class="tag-outline">Designed With Care</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FICHA -->
+  <div class="ficha">
+    <div class="ficha-header">
+      <span class="ficha-id">Sistema asistencial IoT</span>
+      <span class="ficha-logo">LOOP</span>
+    </div>
+    <div class="ficha-grid">
+      <div class="ficha-item"><label>Interfaz</label><p>Botón · NFC</p></div>
+      <div class="ficha-item"><label>Salida</label><p>Pantalla · LED · Audio</p></div>
+      <div class="ficha-item"><label>Sincronización</label><p>Tiempo real · Firebase</p></div>
+      <div class="ficha-item"><label>Plataforma</label><p>Móvil + Web</p></div>
+    </div>
+    <p class="ficha-phrase">Salida multisensorial. Sincronización en tiempo real. Dos botones. Una luz. Combinaciones infinitas de cuidado. <strong>Guía. Escucha. Registra.</strong> <em>Esto no es un gadget. Es un sistema para estar presente.</em></p>
+  </div>
+
+<!-- PROBLEMA -->
+  <div class="problem">
+    <div class="sec-label">El problema</div>
+    <div class="sec-title">Rutinas que se pierden. Cuidadores que se agotan.</div>
+    <p class="sec-body">Las personas con discapacidad cognitiva enfrentan barreras reales para seguir rutinas de forma autónoma. Sus familias cargan ese peso sin herramientas que les den evidencia y tranquilidad.</p>
+    <div class="stat-grid">
+      <div class="stat"><span class="stat-n">55M</span><span class="stat-d">personas viven con demencia en el mundo</span></div>
+      <div class="stat"><span class="stat-n">1:100</span><span class="stat-d">niños diagnosticados con TEA globalmente</span></div>
+      <div class="stat"><span class="stat-n">70%</span><span class="stat-d">de cuidadores reportan agotamiento crónico</span></div>
+      <div class="stat"><span class="stat-n">IoT</span><span class="stat-d">solución accesible, hecha en Chihuahua</span></div>
+    </div>
+  </div>
+
+  <!-- CÓMO FUNCIONA -->
+  <div class="how">
+    <div class="sec-label">Cómo funciona</div>
+    <div class="sec-title">Simple para el usuario. Poderoso para el cuidador.</div>
+    <div class="step-list">
+      <div class="step"><div class="sn">1</div><div><h3>Alerta simultánea</h3><p>La pantalla se activa e indica la tarea a realizar. Al mismo tiempo, suena un aviso y la luz se enciende.</p></div></div>
+      <div class="step"><div class="sn">2</div><div><h3>Confirmación de tarea</h3><p>El usuario realiza la tarea y presiona el botón o escanea el NFC. Suena una confirmación y la luz se activa.</p></div></div>
+      <div class="step"><div class="sn">3</div><div><h3>Aviso al cuidador</h3><p>La app notifica al cuidador en tiempo real que la tarea fue completada.</p></div></div>
+      <div class="step"><div class="sn">4</div><div><h3>Modo alerta bidireccional</h3><p>Dispositivo → App: el cuidador recibe una notificación emergente. App → Dispositivo: se activan audio y luz, y la pantalla muestra "ALERTA".</p></div></div>
+    </div>
+  </div>
+
+  <!-- VARIANTES -->
+  <div class="variants">
+    <div class="sec-label">Las variantes</div>
+    <div class="sec-title">Dos dispositivos, un propósito.</div>
+    <div class="var-cards">
+      <div class="var-card">
+        <h3>LOOP</h3>
+        <p>Para adultos con deterioro cognitivo. Uso en el hogar. Pantalla 4.0".</p>
+        <span class="var-pill">Hogar</span>
+      </div>
+      <div class="var-card">
+        <h3>LOOP Kids</h3>
+        <p>Para salones de educación especial. Pantalla circular. NFC por niño.</p>
+        <span class="var-pill">Aula</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERSONAS -->
+  <div class="personas">
+    <div class="sec-label">Audiencia objetivo</div>
+    <div class="sec-title">¿Para quién es LOOP?</div>
+    <div class="per-list">
+      <div class="per"><div class="av">👴🏻</div><div><p>Don Roberto, 74</p><span>Alzheimer leve — hogar en Chihuahua</span><br><span style="font-size:10px;color:#888">Adultos mayores con deterioro cognitivo que viven en casa</span></div></div>
+      <div class="per"><div class="av">👦🏽</div><div><p>Mateo, 9 años</p><span>TEA moderado — salón de educación especial</span><br><span style="font-size:10px;color:#888">Niños y jóvenes con TEA que necesitan rutinas estructuradas</span></div></div>
+      <div class="per"><div class="av">👩🏽‍🦱</div><div><p>Ana, cuidadora</p><span>Necesita visibilidad y paz mental en tiempo real</span><br><span style="font-size:10px;color:#888">Familias y cuidadores que requieren seguimiento a distancia</span></div></div>
+    </div>
+  </div>
+
+  <!-- TECH -->
+  <div class="tech">
+    <div class="sec-label">Tecnología</div>
+    <div class="sec-title">Hecho a mano, con herramientas reales.</div>
+    <div class="tech-grid">
+      <div class="tech-item"><p>ESP32 WROOM</p><span>Microcontrolador</span></div>
+      <div class="tech-item"><p>NFC PN532</p><span>Verificación pulsera</span></div>
+      <div class="tech-item"><p>Firebase</p><span>Datos en tiempo real</span></div>
+      <div class="tech-item"><p>React Native</p><span>App del cuidador</span></div>
+      <div class="tech-item"><p>React + Vite</p><span>Plataforma web</span></div>
+      <div class="tech-item"><p>Impresión 3D</p><span>Carcasa propia</span></div>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="quote-block">
+    <div class="qmark">"</div>
+    <p class="qtext">Independencia al alcance de un botón. Conectando el cuidado.</p>
+    <span class="qby">LOOP · Chihuahua, México · 2025</span>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="sec-label">El futuro de LOOP</div>
+    <div class="sec-title">Tecnología asistencial para todos.</div>
+    <p class="cta-body">Postulado al Premio Estatal por la Discapacidad Manuel Trueva Martínez 2025. Código abierto, bajo costo. Buscamos crecer y colaborar.</p>
+<span class="award">🏆 Premio Estatal por la Discapacidad · 2025</span>
+  </div>
+
+  <!-- TEAM -->
+  <div class="team">
+    <div class="sec-label">El equipo</div>
+    <div class="sec-title">Susana & Axel</div>
+    <div class="photobooth">
+      <div class="photobooth-strip">
+        <img src="team.jpg" alt="Susana Gallegos y Axel Castrezana">
+        <div class="photobooth-label">LOOP · 2025</div>
+        <div class="photobooth-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Susana Gallegos & Axel Castrezana</p>
+    <p>Chihuahua, Chih.</p>
+  </div>
+
+</div>
+</body>
+</html>
